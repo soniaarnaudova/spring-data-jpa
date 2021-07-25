@@ -27,6 +27,15 @@ public class Course {
     private String title;
     private Integer credit;
 
+    @OneToOne(
+            mappedBy = "course",
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(
+            name = "course_id",
+            referencedColumnName = "courseId"
+    )
+    private CourseMaterial courseMaterial;
 
     @ManyToOne(
             cascade = CascadeType.ALL,
